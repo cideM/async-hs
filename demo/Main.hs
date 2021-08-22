@@ -1,7 +1,10 @@
-import Control.Concurrent.Async
+-- import Control.Concurrent.Async
+import Control.Exception.Safe
 import Control.Retry
 import Network.HTTP.Req
-import Turtle
+import qualified System.Process as Proc
+
+-- import Turtle
 
 waitForServer :: IO ()
 waitForServer = do
@@ -19,9 +22,16 @@ waitForServer = do
 
   pure ()
 
+-- main :: IO ()
+-- main = do
+--   sh $ do
+--     pr <- fork $ proc "cabal" ["v2-run", "async-hs"] empty
+--     liftIO waitForServer
+--     liftIO $ cancel pr
+
 main :: IO ()
 main = do
-  sh $ do
-    pr <- fork $ proc "cabal" ["v2-run", "async-hs"] empty
-    liftIO waitForServer
-    liftIO $ cancel pr
+  bracket
+    (Proc.spawnProcess "cabal" ["v2-run", "async-hs"])
+    Proc.interruptProcessGroupOf
+    $ \_ -> waitForServer

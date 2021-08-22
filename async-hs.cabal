@@ -57,6 +57,8 @@ executable demo
       , base ^>=4.14.1.0
       , turtle
       , req
+      , process
+      , safe-exceptions
       , retry
       , async
     hs-source-dirs:   demo
