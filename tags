@@ -9,3 +9,9 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
+0.1.0.0 -- YYYY-mm-dd	CHANGELOG.md	/^## 0.1.0.0 -- YYYY-mm-dd$/;"	s	chapter:Revision history for async-hs
+Quick Start	README.md	/^# Quick Start$/;"	c
+Revision history for async-hs	CHANGELOG.md	/^# Revision history for async-hs$/;"	c
+main	app/Main.hs	/^main = scotty 3000 \$$/;"	f
+main	demo/Main.hs	/^main = do$/;"	f
+waitForServer	demo/Main.hs	/^waitForServer = do$/;"	f
